@@ -1,12 +1,45 @@
-const loadVideo = async () => {
-    const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/1000`)
+const loadCategories = async () =>{
+    const res = await fetch('https://openapi.programming-hero.com/api/videos/categories');
     const data = await res.json();
-    const videos = data.data;
+    const categories =  data.data
+    displayCategoryButtons(categories);
+    loadVideosByCategory('all');
+}
+
+const displayCategoryButtons = (categories) =>{
+    const categoryButtonsContainer = document.getElementById('category-buttons');
+    categoryButtonsContainer.innerHTML = '';//clear any previous buttons
+
+
+    // Create category buttons dynamically
+    categories.forEach(categoryName =>{
+        const button = document.createElement('button');
+        button.classList = 'bg-red-500 py-2 px-4 flex justify-center text-white text-center rounded';
+        button.innerText = categoryName.category;
+        button.addEventListener('click',() =>loadVideosByCategory(categoryName.category_id));
+        categoryButtonsContainer.appendChild(button);
+
+    });
+}
+const loadVideosByCategory = async(categoryId)=>{
+  const url = categoryId==='all'
+  ?`https://openapi.programming-hero.com/api/videos/category/1000`
+  :`https://openapi.programming-hero.com/api/videos/category/${categoryId}`;
+  const res = await fetch(url);
+  const data = await res.json();
+  const videos = data.data;
+  if(videos.length === 0){
+    displayNotFound();
+  }
+  else{
     displayVideos(videos);
+  }
 }
 
 const displayVideos = (videos) =>{
     const videosContainer = document.getElementById('videos-container');
+    videosContainer.innerHTML = ''; // Clear previous videos
+
     videos.forEach(video=>{
         console.log(video);
         const videoCard = document.createElement('div');
@@ -39,6 +72,16 @@ const displayVideos = (videos) =>{
                       
         `;
         videosContainer.appendChild(videoCard);
+        
     });
 }
-loadVideo();
+const displayNotFound = () => {
+    const videosContainer = document.getElementById('videos-container');
+    videosContainer.innerHTML = `
+    <div class="flex text-center justify-center items-center text-xl font-semibold text-red-500">
+    <img src="\Icon.png">
+    OOPS Sorry!There is no content here!</div>
+    `;
+}
+loadCategories();
+
