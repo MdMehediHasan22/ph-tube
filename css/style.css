@@ -1,0 +1,11 @@
+.container{
+    max-width: 1440px;
+}
+body{
+    font-family: Arial, sans-serif;
+}
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Adjust the number of columns as needed */
+    gap: 20px; /* Adjust the gap between cards */
+  }

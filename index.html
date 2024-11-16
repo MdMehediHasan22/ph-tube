@@ -4,25 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PH Tube</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     
 <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
 <script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="/css/style.css">
 
 </head>
-<body>
+<body class="container mx-auto">
     <header>
-
+           <nav>
+            <div class="navbar bg-base-100 mt-8 mb-2">
+                <div class="navbar-start">
+                  <img class="w-32 md:w-36 lg:w-36" src="/Logo.png" alt="">
+                </div>
+                <div class="navbar-center lg:flex">
+                     <button id="short-view" class=" md:text-base lg:text-lg bg-gray-300 py-1 px-3 mx-2 rounded">Short by view</button>
+                </div>
+                <div class="navbar-end">
+                  <a href="blog.html">
+                    <button class=" text-lg text-white font-semibold bg-red-500 py-1 px-3 mx-2 rounded">Blog</button>
+                  </a>
+                </div>
+              </div>
+              <hr>
+           </nav>
     </header>
     <main>
+         <!-- search result -->
+         <section>
+            <div id="videos-container" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-10">
+                  
+                      
+            </div>
+        </section>
 
     </main>
-    <footer>
-        
-    </footer>
-      
+    
     <script src="/script/script.js"></script>
 </body>
 </html>

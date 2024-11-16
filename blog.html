@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+
+    <div class="max-w-5xl w-full bg-white rounded-lg shadow-lg p-5">
+      <h2 class="text-2xl font-semibold mb-5 text-center">Blog Questions</h2>
+    
+      <!-- FAQ Item 1 -->
+      <div class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box mb-3">
+        <input type="checkbox" /> 
+        <div class="collapse-title text-2xl font-medium">
+            Discuss the scope of var, let, and const
+        </div>
+        <div class="collapse-content"> 
+          <p>
+            <span class="text-lg font-semibold">1. Scope</span><br>
+            <span class="text-lg font-semibold">var:</span> Has function scope, meaning it is scoped to the function in which it is declared. If declared outside a function, it becomes globally scoped, accessible throughout the entire script. <br>
+            <span class="text-lg font-semibold">let and const:</span> Both have block scope, meaning they are only accessible within the nearest set of curly braces ({}) such as within loops, conditionals, or functions. <br>
+            <span class="text-lg font-semibold">2. Reassignability</span><br>
+            
+            <span class="text-lg font-semibold">var:</span> Can be re-assigned and re-declared within the same scope, which can sometimes lead to bugs if the same name is reused unintentionally. <br>
+            <span class="text-lg font-semibold">let:</span>  Can be re-assigned but cannot be re-declared in the same scope. <br>
+            <span class="text-lg font-semibold">const:</span>  Cannot be re-assigned or re-declared in the same scope. This is ideal for values that do not need to change, such as configuration settings or constant values. <br>
+            <span class="text-lg font-semibold">3. Hoisting</span><br>
+            
+            <span class="text-lg font-semibold">var:</span> Is hoisted to the top of its scope (function or global), meaning the variable can be accessed before it’s declared, though it will initially be undefined. <br>
+            <span class="text-lg font-semibold">let and const:</span> Are also hoisted, but in a "Temporal Dead Zone" from the start of the block until their declaration is encountered. Attempting to access these variables before their declaration results in a ReferenceError.</p> <br>
+            <p>
+                function testScope() { <br>
+                    // var<br>
+                    if (true) {<br>
+                      var a = 10;<br>
+                    }<br>
+                    console.log(a); // 10, because `var` is function-scoped<br>
+                  
+                    // let<br>
+                    if (true) {<br>
+                      let b = 20;<br>
+                    }<br>
+                    console.log(b); // ReferenceError, because `let` is block-scoped<br>
+                  
+                    // const <br>
+                    if (true) {<br>
+                      const c = 30;<br>
+                    }<br>
+                    console.log(c); // ReferenceError, because `const` is block-scoped<br>
+                  }<br>
+                  
+            </p>
+        </div>
+      </div>
+    
+      <!-- FAQ Item 2 -->
+      <div class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box mb-3">
+        <input type="checkbox" /> 
+        <div class="collapse-title text-2xl font-medium">
+            Understanding null vs undefined in JavaScript
+        </div>
+        <div class="collapse-content"> 
+          <p>When working in JavaScript,we'll often encounter null and undefined, both of which represent the absence of a value. However, they serve different purposes and are used in distinct contexts. <br>
+            Let’s break down when and why to use each one.</p><br>
+            <h3 class="text-lg font-semibold">null</h3>
+            <p>When working in JavaScript, you'll often encounter null and undefined, both of which represent the absence of a value. However, they serve different purposes and are used in distinct contexts. Let’s break down when and why to use each one. <br>
+                <span class="text-lg font-semibold">Intentional Empty Value</span>:  Use null when you want to signify that a variable is intentionally empty and may later hold an object or value. <br>
+                <span class="text-lg font-semibold">Object Property Reset:</span>: Set a property to null to reset or empty its value, often in situations where undefined might have a different semantic meaning. <br>
+                <span class="text-lg font-semibold">API or Database Responses: </span>:When expecting data from APIs or databases, null is commonly used to signify "no data" or "empty value". <br>
+                <span class="text-lg font-semibold">DOM Element Placeholders</span>: In front-end development, null is used to initialize variables intended to store references to DOM elements once they are loaded. <br></p>
+                
+            <h3 class="text-lg font-semibold">undefined</h3>
+            <p>Definition: undefined means a variable has been declared but not assigned a value. It is also the default value of function parameters that are not provided and the return value of functions that do not explicitly return anything.<br>
+                <span class="text-lg font-semibold">Uninitialized Variables</span>:  When you declare a variable without assigning a value, JavaScript automatically assigns it undefined. <br>
+                <span class="text-lg font-semibold">Function Parameters Not Provided:</span>:  If a function is called without passing all arguments, the missing parameters are assigned undefined. <br>
+                <span class="text-lg font-semibold">Non-Existent Properties </span>:Accessing a non-existent property on an object returns undefined.<br>
+                <span class="text-lg font-semibold">Function Return Value</span>:  If a function does not have a return statement, it implicitly returns undefined.<br></p>
+                
+        </div>
+      </div>
+    
+      <!-- FAQ Item 3 -->
+      <div class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box mb-3">
+        <input type="checkbox" /> 
+        <div class="collapse-title text-2xl font-medium">
+            What do you mean by REST API?
+        </div>
+        <div class="collapse-content"> 
+          <p>A REST API (Representational State Transfer Application Programming Interface) is a set of rules and conventions for building and interacting with web services. It allows different software applications to communicate with each other over the internet. REST APIs are commonly used in web development to enable interactions between front-end applications (like web or mobile apps) and back-end services (such as databases or servers).</p>
+          <h2 class="text-lg font-semibold">Key Concepts of REST API</h2>
+            <p>Definition: undefined means a variable has been declared but not assigned a value. It is also the default value of function parameters that are not provided and the return value of functions that do not explicitly return anything.<br><br>
+                <span class="text-lg font-semibold">REST Architecture: </span>: REST is an architectural style based on a few principles that make web services simpler and more efficient: <br>
+                <span class="text-lg font-semibold">1. Stateless</span>:   Each request from a client to a server must contain all the information the server needs to fulfill that request. The server does not store any client context between requests, making each interaction independent. <br>
+                <span class="text-lg font-semibold">2. Client-Server </span>:The client (e.g., web browser or mobile app) interacts with the server (e.g., a database or application server) to request resources, without needing to know how the server stores or manages data.<br>
+                <span class="text-lg font-semibold">3. Uniform Interface</span>:REST APIs use a standardized way of accessing resources, typically using HTTP methods like GET, POST, PUT, DELETE, etc.<br>
+                <span class="text-lg font-semibold">4. Cacheable</span>:Responses from REST APIs can be cached on the client side, which improves performance and reduces server load.<br></p><br>
+            <p>
+                <span class="text-lg font-semibold">HTTP Methods: </span>: REST APIs use HTTP methods to perform various operations on resources: <br>
+                <span class="text-lg font-semibold">1. GET</span>:   Retrieve information or data from the server. <br>
+                <span class="text-lg font-semibold">2. POST</span>: Create a new resource on the server.<br>
+                <span class="text-lg font-semibold">3. PUT</span>:Update an existing resource on the server.<br>
+                <span class="text-lg font-semibold">4. DELETE</span>:Remove a resource from the server.<br></p><br>
+                <p><span class="text-lg font-semibold">Resources and Endpoints:</span> In REST, "resources" are the objects or data that you want to interact with, like users, products, or orders. Each resource is accessible through a unique URL called an "endpoint," such as /users or /products/123.</p><br>
+                <p><span class="text-lg font-semibold">JSON and XML:</span>  REST APIs often use JSON (JavaScript Object Notation) to format the data sent between the client and server, though XML is also sometimes used. JSON is human-readable and easy for front-end applications to parse, making it a preferred format.</p>
+        </div>
+      </div>
+    
+    </div>
+    
+    </body>
+</html>
