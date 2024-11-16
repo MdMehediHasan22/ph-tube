@@ -35,6 +35,17 @@ const loadVideosByCategory = async(categoryId)=>{
     displayVideos(videos);
   }
 }
+const shortView = async () => {
+    const res = await fetch('https://openapi.programming-hero.com/api/videos/category/1000');
+    const data = await res.json();
+    const videos = data.data;
+
+    // Sort the videos by views in descending order
+    const sortedVideos = videos.sort((a, b) => b.others.views - a.others.views);
+
+    // Display the sorted videos
+    displayVideos(sortedVideos);
+};
 
 const displayVideos = (videos) =>{
     const videosContainer = document.getElementById('videos-container');
@@ -83,5 +94,10 @@ const displayNotFound = () => {
     OOPS Sorry!There is no content here!</div>
     `;
 }
+const shortViewButton = document.getElementById('short-view');
+shortViewButton.addEventListener('click', shortView);
+
 loadCategories();
+
+
 
